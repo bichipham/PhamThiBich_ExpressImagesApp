@@ -22,6 +22,5 @@ export const protect = async (req, res, next) => {
 
     req.user = user
 
-    // console.log(`middleware protect`, { authorization, type, accessToken, userId, user });
     next();
 };
