@@ -20,7 +20,6 @@ FROM node:24.1.0-alpine
 WORKDIR /app
 # Chỉ copy các file cần thiết từ base image
 COPY --from=base ./app/server.js ./server.js
-COPY --from=base ./app/.env ./.env
 COPY --from=base ./app/src ./src
 COPY --from=base ./app/package.json ./package.json
 COPY --from=base ./app/node_modules ./node_modules
