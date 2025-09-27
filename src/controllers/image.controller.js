@@ -17,7 +17,6 @@ export const imageController = {
     res.status(response.statusCode).json(response);
   },
   getComment: async function (req, res, next) {
-    console.log('!!!!!!!!1 getComment controller');
     const result = await imageService.getComment(req);
     const response = responseSuccess(
       result,
