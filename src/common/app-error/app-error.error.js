@@ -7,7 +7,6 @@ import { statusCodes } from "../helpers/status-code.helper";
  * - Tất cả lỗi đều đổ vào hàm này
  */
 export const appError = (err, req, res, next) => {
-    console.log(`middleware đặc biệt:`, err);
 
     // 401 => logout
     // 403 => api refresh-token
