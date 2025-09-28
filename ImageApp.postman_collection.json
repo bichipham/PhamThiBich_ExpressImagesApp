@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"abc@gmail.com\",\n    \"password\": \"abc123\"\n}",
+					"raw": "{\n    \"email\": \"Alice_Alex@gmail.com\",\n    \"password\": \"abc123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"user4_Alice@gmail.com\",\n    \"password\": \"abc123\",\n    \"name\": \"Alice Alex\"\n}",
+					"raw": "{\n    \"email\": \"Alice_Alex@gmail.com\",\n    \"password\": \"abc123\",\n    \"name\": \"Alice Alex\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -113,7 +113,7 @@
 						{
 							"key": "avatar",
 							"type": "file",
-							"src": "/Users/macbook16/Documents/Bichi/Pics/286050292_7598518830220061_1153331031300113222_n.jpeg"
+							"src": "/Users/macbook16/Documents/Bichi/Pics/50634341_1164665483684342_757789418227499008_n.jpeg"
 						},
 						{
 							"key": "name",
@@ -122,7 +122,7 @@
 						},
 						{
 							"key": "age",
-							"value": "19",
+							"value": "20",
 							"type": "text"
 						}
 					],
@@ -175,8 +175,8 @@
 					}
 				},
 				"url": {
-					"raw": "{http://54.255.248.50/api/user/comment",
-					"protocol": "{http",
+					"raw": "http://54.255.248.50/api/user/comment",
+					"protocol": "http",
 					"host": [
 						"54",
 						"255",
@@ -208,12 +208,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3070/api/image?page=1&size=3",
+					"raw": "http://54.255.248.50/api/image?page=1&size=3",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54",
+						"255",
+						"248",
+						"50"
 					],
-					"port": "3070",
 					"path": [
 						"api",
 						"image"
@@ -253,11 +255,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/user/get-info",
+					"raw": "http://54.255.248.50/api/user/get-info",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"54",
+						"255",
+						"248",
+						"50"
 					],
 					"path": [
+						"api",
 						"user",
 						"get-info"
 					]
@@ -286,28 +293,40 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/Users/macbook16/Documents/Bichi/Pics/128626969_2684737415125427_1796021534361954736_n.jpeg"
+							"src": "/Users/macbook16/Documents/Bichi/Pics/275243478_3026582057607626_4109628150340524705_n.jpeg"
 						},
 						{
 							"key": "name",
-							"value": "hinh 2 ",
+							"value": "1 tam hinh aaa",
 							"type": "text"
 						},
 						{
 							"key": "description",
-							"value": "hinh rat dep",
+							"value": "hinh rat dep lam bbb",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{base_url}}/user/upload-image",
+					"raw": "http://54.255.248.50/api/user/upload-image",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"54",
+						"255",
+						"248",
+						"50"
 					],
 					"path": [
+						"api",
 						"user",
 						"upload-image"
+					],
+					"query": [
+						{
+							"key": "image",
+							"value": null,
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -328,28 +347,8 @@
 				},
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "image",
-							"type": "file",
-							"src": "/Users/macbook16/Documents/Bichi/Pics/128626969_2684737415125427_1796021534361954736_n.jpeg"
-						},
-						{
-							"key": "name",
-							"value": "hinh 2 ",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "hinh rat dep",
-							"type": "text"
-						}
-					]
-				},
 				"url": {
-					"raw": "http://54.255.248.50/api/user/delete-image/9",
+					"raw": "http://54.255.248.50/api/user/delete-image/13",
 					"protocol": "http",
 					"host": [
 						"54",
@@ -361,7 +360,7 @@
 						"api",
 						"user",
 						"delete-image",
-						"9"
+						"13"
 					]
 				}
 			},
@@ -437,16 +436,31 @@
 		{
 			"name": "get image by id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/image/1",
+					"raw": "http://54.255.248.50/api/image/7",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"54",
+						"255",
+						"248",
+						"50"
 					],
 					"path": [
+						"api",
 						"image",
-						"1"
+						"7"
 					]
 				}
 			},
@@ -502,13 +516,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/user/1/images",
+					"raw": "http://54.255.248.50/api/user/7/images",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"54",
+						"255",
+						"248",
+						"50"
 					],
 					"path": [
+						"api",
 						"user",
-						"1",
+						"7",
 						"images"
 					]
 				}
@@ -517,6 +536,9 @@
 		},
 		{
 			"name": "get comment by image id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -530,15 +552,29 @@
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"imageId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{base_url}}/user/1/images",
+					"raw": "http://54.255.248.50/api/image/2/comment",
+					"protocol": "http",
 					"host": [
-						"{{base_url}}"
+						"54",
+						"255",
+						"248",
+						"50"
 					],
 					"path": [
-						"user",
-						"1",
-						"images"
+						"api",
+						"image",
+						"2",
+						"comment"
 					]
 				}
 			},
