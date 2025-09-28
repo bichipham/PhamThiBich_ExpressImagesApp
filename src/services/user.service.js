@@ -70,7 +70,7 @@ export const userService = {
    const uploadCloudRes = await uploadCloudDinary(req.file, "socialapp");
 
     const { name, description } = req.body;
-    await prisma.images.create({
+    const res = await prisma.images.create({
       data: {
         name: name,
         path: uploadCloudRes.secure_url,
@@ -78,7 +78,7 @@ export const userService = {
         userId: +user?.id,
       },
     });
-    return true;
+    return res;
   },
   getAllUserImage: async function (req) {
     const userId = parseInt(req.params.id);

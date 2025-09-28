@@ -12,7 +12,6 @@ export const imageController = {
     const result = await imageService.findOne(req);
     const response = responseSuccess(
       result,
-      `Get image #${req.params.id} successfully`
     );
     res.status(response.statusCode).json(response);
   },

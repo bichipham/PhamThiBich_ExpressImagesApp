@@ -50,7 +50,7 @@ export const imageService = {
       },
     });
 
-    return imageInfo;
+    return {message: imageInfo? 'Get image success' : 'Image not found', data: imageInfo}
   },
   getComment: async function (req) {
     const imageId = +req?.params?.id
