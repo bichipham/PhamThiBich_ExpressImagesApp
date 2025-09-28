@@ -17,6 +17,7 @@ A simple social media style application where users can upload, comment, and sav
 
 ## API Routes
 ## Domain : http://54.255.248.50/api
+## Postman Export at file ImageApp.postman_collection.json
 ## Ping me to restart databse server if it's down
 ### User Routes
 - `POST /api/users/register` → Register a new user  

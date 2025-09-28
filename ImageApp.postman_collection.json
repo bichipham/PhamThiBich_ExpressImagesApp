@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "d0118563-7b6d-41b1-9f2e-0f206138a688",
+		"name": "ImageApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let res = pm.response.json()",
+							"console.log('res ', res)",
+							"pm.globals.set(\"accessToken\", res.data.accessToken)",
+							"pm.globals.set(\"refreshToken\", res.data.refreshToken)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"abc@gmail.com\",\n    \"password\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://54.255.248.50/api/user/login",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user4_Alice@gmail.com\",\n    \"password\": \"abc123\",\n    \"name\": \"Alice Alex\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://54.255.248.50/api/user/register",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user update profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/Users/macbook16/Documents/Bichi/Pics/286050292_7598518830220061_1153331031300113222_n.jpeg"
+						},
+						{
+							"key": "name",
+							"value": "bichi ne",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "19",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://54.255.248.50/api/user/update-profile",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"update-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"imageId\": 2,\n   \"content\": \"where ??\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{http://54.255.248.50/api/user/comment",
+					"protocol": "{http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all image search with keyword",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3070/api/image?page=1&size=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3070",
+					"path": [
+						"api",
+						"image"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "keyword",
+							"value": "Image",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user get info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/get-info",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"get-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user upload image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/macbook16/Documents/Bichi/Pics/128626969_2684737415125427_1796021534361954736_n.jpeg"
+						},
+						{
+							"key": "name",
+							"value": "hinh 2 ",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "hinh rat dep",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/user/upload-image",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"upload-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user delete image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/macbook16/Documents/Bichi/Pics/128626969_2684737415125427_1796021534361954736_n.jpeg"
+						},
+						{
+							"key": "name",
+							"value": "hinh 2 ",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "hinh rat dep",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://54.255.248.50/api/user/delete-image/9",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"delete-image",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user save image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://54.255.248.50/api/user/save-image/4",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"save-image",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user get all saved image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://54.255.248.50/api/user/save-image",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"user",
+						"save-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/image/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"image",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "image is saved by user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://54.255.248.50/api/image/8/is-saved-by-user",
+					"protocol": "http",
+					"host": [
+						"54",
+						"255",
+						"248",
+						"50"
+					],
+					"path": [
+						"api",
+						"image",
+						"8",
+						"is-saved-by-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image post  by user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/1/images",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"1",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get comment by image id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user/1/images",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"1",
+						"images"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
